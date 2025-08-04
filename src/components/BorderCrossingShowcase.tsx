@@ -18,8 +18,8 @@ export default function BorderCrossingShowcase() {
   }, []);
 
   return (
-    <section className="relative w-full h-[85vh] min-h-[420px] flex items-center justify-center overflow-hidden">
-      {/* Imagen actual del carrusel */}
+    <section className="relative w-full h-[85vh] min-h-[420px] flex items-center justify-center overflow-hidden bg-primary">
+      {/* Imagen del carrusel */}
       <img
         src={images[current]}
         alt="Fondo de transporte"
@@ -27,34 +27,37 @@ export default function BorderCrossingShowcase() {
         draggable={false}
       />
 
-      {/* Capa oscura y contenido */}
-      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6 z-10">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4 drop-shadow-lg">
+      {/* Overlay oscuro y contenido central */}
+      <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center text-white px-6 z-10">
+        <h1 className="text-4xl sm:text-5xl font-title font-extrabold mb-4 drop-shadow-2xl tracking-tight">
           ¡Bienvenido a Mexico American Transportation!
         </h1>
-        <h2 className="text-lg sm:text-xl mb-4 tracking-wide uppercase">
-          Servicio de cruce fronterizo México–Estados Unidos
+        <h2 className="text-lg sm:text-2xl font-title tracking-wide uppercase text-accent mb-3 drop-shadow-lg">
+          Servicio de Cruce Fronterizo México–Estados Unidos
         </h2>
-        <p className="max-w-xl text-base sm:text-lg mb-6">
-          Somos especialistas en transporte transfronterizo y arrastre de carga federal.
+        <p className="max-w-xl text-base sm:text-lg text-background/80 mb-7 font-sans">
+          Somos especialistas en transporte transfronterizo y arrastre de carga federal.<br />
           Seguridad, puntualidad y eficiencia en cada recorrido.
         </p>
         <a
           href="tel:6311048198"
-          className="bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-6 rounded-md transition duration-300 shadow-lg"
+          className="bg-accent hover:bg-[#bc370b] text-white font-title font-bold py-3 px-8 rounded-xl text-lg shadow-xl transition-all duration-300 outline-none ring-2 ring-accent/10 focus:ring-accent/30"
         >
           📞 Cotiza ahora: 631 104 8198
         </a>
-        {/* Controles manuales del carrusel */}
-        <div className="absolute bottom-6 flex gap-3">
+
+        {/* Indicadores/carrousel controls */}
+        <div className="absolute bottom-8 flex gap-3">
           {images.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
               aria-label={`Imagen ${i + 1}`}
-              className={`w-3 h-3 rounded-full transition-colors border border-white/30 ${
-                i === current ? "bg-white" : "bg-white/50"
-              }`}
+              className={`w-4 h-4 rounded-full border-2 border-white/60 transition-all
+                ${i === current
+                  ? "bg-accent shadow-md scale-110 border-accent"
+                  : "bg-white/40 hover:bg-accent/70"}
+              `}
             />
           ))}
         </div>
