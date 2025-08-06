@@ -1,11 +1,11 @@
 // src/components/BorderCrossingShowcase.tsx
 import { useEffect, useState } from "react";
+import hero1 from '../assets/imgHomePage/img1.png';
+import hero2 from '../assets/imgHomePage/img2.png';
+import hero3 from '../assets/imgHomePage/img3.png';
+import hero4 from '../assets/imgHomePage/img4.png';
 
-const images = [
-  "/images/hero-1.jpg",
-  "/images/hero-2.jpg",
-  "/images/hero-3.jpg",
-];
+const images = [hero1, hero2, hero3, hero4];
 
 export default function BorderCrossingShowcase() {
   const [current, setCurrent] = useState(0);
@@ -13,7 +13,7 @@ export default function BorderCrossingShowcase() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 

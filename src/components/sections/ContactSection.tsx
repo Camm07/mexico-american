@@ -28,13 +28,27 @@ export default function ContactSection() {
                 <span className="bg-accent rounded-full p-3 flex items-center justify-center shadow-md">
                   <FaEnvelope className="text-white text-2xl" />
                 </span>
-                <span className="break-words">{CONTACT_EMAIL}</span>
+                <span className="break-words overflow-x-auto whitespace-pre-wrap font-semibold text-primary" style={{ wordBreak: "break-all" }}>
+                  {CONTACT_EMAIL}
+                </span>
               </div>
             </div>
           </div>
+          {/* Botón estilo boleto */}
           <a
             href={`mailto:${CONTACT_EMAIL}`}
-            className="bg-accent hover:bg-[#bc370b] text-white py-3 px-8 rounded-xl text-lg font-title font-extrabold shadow-lg text-center transition"
+            className="
+              block mt-3
+              bg-accent text-white text-xl font-title font-extrabold tracking-wide
+              py-4 px-0 rounded-[20px] shadow-lg text-center
+              border-b-[7px] border-accent/70
+              transition-all duration-200
+              hover:bg-[#bc370b] hover:scale-[1.025]
+              "
+            style={{
+              letterSpacing: ".5px",
+              boxShadow: "0 6px 24px 0 rgba(208,58,0,0.12)"
+            }}
           >
             Contactar ahora
           </a>
